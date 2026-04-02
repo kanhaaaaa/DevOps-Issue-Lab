@@ -3,6 +3,9 @@ name: Issue Automation Workflow
 on:
   issues:
     types: [opened, closed]
+    
+permissions:
+  issues: write
 
 jobs:
   issue-handler:

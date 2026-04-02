@@ -1,0 +1,20 @@
+name: Issue Automation Workflow
+
+on:
+  issues:
+    types: [opened, closed]
+
+jobs:
+  issue-handler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Issue Event
+        run: echo "An issue event has been triggered!"
+
+      - name: When Issue is Opened
+        if: github.event.action == 'opened'
+        run: echo "A new issue was created"
+
+      - name: When Issue is Closed
+        if: github.event.action == 'closed'
+        run: echo "An issue was closed"
